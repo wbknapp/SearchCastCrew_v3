@@ -1,0 +1,79 @@
+﻿/*  ABOUT PAGE STYLES  */
+
+.img-about {
+    border: 5px solid #211818;
+    border-radius: 4px;
+}
+
+body {
+    background-image: url('');
+    background-image: url('../imgs/FILM BACKGROUND textura-de-papel-antiguo_480x320_1552.jpg');
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding-top: 100px;
+    padding-bottom: 20px;
+    background-attachment: fixed;
+}
+
+.about-container {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.about-header {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 40px;
+    color: #211818;
+    text-align: left;
+}
+
+.about-body {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    color: #211818;
+    text-align: left;
+}
+
+.about-heading {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 80px;
+    color: #211818;
+}
+
+#about-hr {
+    border-top: 3px solid #211818;
+}
+
+#quote {
+    font-family: 'Tangerine', serif;
+    font-size: 48px;
+    padding:5px;
+    border-radius:10px;
+    background-color:antiquewhite;
+}
+
+/*a:link {
+    text-decoration: none;
+    color: #333333;
+}
+
+a:visited {
+    text-decoration: none;
+    color: #333333;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a:active {
+    text-decoration: underline;
+}*/

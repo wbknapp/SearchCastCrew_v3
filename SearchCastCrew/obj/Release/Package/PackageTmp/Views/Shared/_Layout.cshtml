@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - SearchCastCrew</title>
+
+
+    <meta name="title" content="jQuery Interactive BG by Pete R. | The Pete Design" />
+    <meta name="description" content="Create an interactive moving background that reacts to viewer's cursor with jQuery Interactive BG plugin by Pete Rojwongsuriya" />
+    <link rel="image_src" href="/images/interactive_bg_image.png" />
+    <link rel="shortcut icon" id="favicon" href="favicon.png">
+    <meta name="author" content="Pete R.">
+    <link rel="canonical" href="http://www.thepetedesign.com/demos/interactive_bg_demo.html" />
+    <link href='http://fonts.googleapis.com/css?family=Noto+Serif:400italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,700' rel='stylesheet' type='text/css'>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine">
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:700,400' rel='stylesheet' type='text/css'>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Search Cast Crew", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Search Profiles", "Search", "Profiles", new { num = 0 }, "")</li>
+                    <li>@Html.ActionLink("Search Map", "SearchMap", "Profiles")</li>
+                </ul>
+
+                <ul>
+                    @*<li id="signup">*@
+                        @Html.Partial("_LoginPartial")
+                    @*</li>*@
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="body-content">
+        @RenderBody()
+    </div>
+
+        <footer>
+            <center>
+            <p>&copy; @DateTime.Now.Year - Search Cast Crew</p>
+            </center>
+        </footer>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/Scripts/home.js")
+    @Scripts.Render("~/Scripts/jquery.interactive_bg.js")
+    @RenderSection("scripts", required: false)
+
+    @Scripts.Render("~/Scripts/LoginDrop.js")
+</body>
+</html>
+
+<style>
+    .navbar-inverse {
+       
+        background-color: #000 !important;
+        opacity: 100;
+    }
+</style>

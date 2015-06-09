@@ -1,0 +1,206 @@
+﻿@using Microsoft.AspNet.Identity
+@model SearchCastCrew.Models.UserProfileVm
+@{
+    ViewBag.Title = "Profile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/Content/Profile.css" rel="stylesheet" />
+
+
+<hr class="">
+<div class="container target" style="margin-top: 100px;">
+    <div class="row">
+        <div class="col-sm-10">
+            <h1 class="">
+                @Model.FirstName @Model.LastName @if (@Model.canEdit)
+                { <a href="@Url.Action("Edit", "CCuser", new { uid = Model.UserId })" title="Edit Profile"><span class="glyphicon glyphicon-pencil edit-profile-icon"></span></a>  <a href="@Url.Action("Delete", "Home", new { uid = Model.UserId })" title="Delete Profile"><span class="glyphicon glyphicon-trash edit-profile-icon" style="color: red;"></span></a> }
+            </h1>
+            <h3><i>@Model.Title</i></h3>
+        </div>
+        <div class="col-sm-2">
+            <a href="/users" class="pull-left">
+                @if (@Model.ProfileImg == null)
+                {
+                    <img title="profile image" class="img-circle img-responsive" src="http://www.trialguides.com/images/authors/placeholder.jpg">
+                }
+                else
+                {
+                    <img title="profile image" class="img-circle img-responsive" src="@Model.ProfileImg.ImageUrl">
+                }
+            </a>
+
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-sm-3">
+            <!--left col-->
+            <ul class="list-group">
+                <li class="list-group-item text-muted" contenteditable="false">Personal Details</li>
+                <li class="list-group-item text-right"><span class="pull-left"><strong class="">Location:</strong></span> @Model.City, @Model.State</li>
+                <li class="list-group-item text-right"><span class="pull-left"><strong class="">Availability:</strong></span> @(@Model.Available == null ? "N/A" : @Model.Available)</li>
+                <li class="list-group-item text-right"><span class="pull-left"><strong class="">Union Affiliated:</strong></span> @( @Model.IsUnion == true ? Html.Raw("Yes") : Html.Raw("No"))</li>
+            </ul>
+
+            <ul class="list-group">
+                <li class="list-group-item text-muted">Physical Details</li>
+                <li class="list-group-item text-right"><span class="pull-left"><strong class="">Gender</strong></span> @(@Model.Gender == null ? "N/A" : @Model.Gender)</li>
+                <li class="list-group-item text-right"><span class="pull-left"><strong class="">Height</strong></span> @Model.HeightInInches</li>
+                <li class="list-group-item text-right"><span class="pull-left"><strong class="">Weight</strong></span> @Model.Weight</li>
+                <li class="list-group-item text-right"><span class="pull-left"><strong class="">Hair Color</strong></span> @(@Model.HairColor == null ? "N/A" : @Model.HairColor)</li>
+                <li class="list-group-item text-right"><span class="pull-left"><strong class="">Eye Color</strong></span> @(@Model.EyeColor == null ? "N/A" : @Model.EyeColor)</li>
+                <li class="list-group-item text-right"><span class="pull-left"><strong class="">Age Range</strong></span> @(@Model.AgeRange == null ? "N/A" : @Model.AgeRange)</li>
+                <li class="list-group-item text-right"><span class="pull-left"><strong class="">Body Type</strong></span> @(@Model.BodyType == null ? "N/A" : @Model.BodyType)</li>
+                <li class="list-group-item text-right"><span class="pull-left"><strong class="">Ethnicity</strong></span> @(@Model.Ethnicity == null ? "N/A" : @Model.Ethnicity)</li>
+            </ul>
+            <div class="panel panel-default">
+                <div class="panel-heading">Social Media</div>
+                <div class="panel-body">
+                    @foreach (var link in Model.LinkUrl)
+                    {
+                        if (link.LinkType == "Facebook")
+                        {
+                            <a href="@link.LinkUrl" class="social-media-link" target="_blank"><i class="fa fa-facebook fa-2x"></i></a>
+                            if (Model.canEdit)
+                            {
+                                <a href="@Url.Action("DeleteLink", "Link", new { lid = link.LinkId} )" title="Delete Link"><span class="glyphicon glyphicon-trash" style="color: red;"></span></a>
+                            }
+                        }
+
+                        if (link.LinkType == "Twitter")
+                        {
+                            <a href="@link.LinkUrl" class="social-media-link" target="_blank"> <i class="fa fa-twitter fa-2x"></i></a>
+                            if (Model.canEdit)
+                            {
+                                <a href="@Url.Action("DeleteLink", "Link", new { lid = link.LinkId} )" title="Delete Link"><span class="glyphicon glyphicon-trash" style="color: red;"></span></a>
+                            }
+                        }
+
+                        if (link.LinkType == "Instagram")
+                        {
+                            <a href="@link.LinkUrl" class="social-media-link" target="_blank"> <i class="fa fa-instagram fa-2x"></i></a>
+                            if (Model.canEdit)
+                            {
+                                <a href="@Url.Action("DeleteLink", "Link", new { lid = link.LinkId} )" title="Delete Link"><span class="glyphicon glyphicon-trash" style="color: red;"></span></a>
+                            }
+                        }
+
+                        if (link.LinkType == "LinkedIn")
+                        {
+                            <a href="@link.LinkUrl" class="social-media-link" target="_blank"> <i class="fa fa-linkedin fa-2x"></i></a>
+                            if (Model.canEdit)
+                            {
+                                <a href="@Url.Action("DeleteLink", "Link", new { lid = link.LinkId} )" title="Delete Link"><span class="glyphicon glyphicon-trash" style="color: red;"></span></a>
+                            }
+                        }
+                    }
+
+                </div>
+            </div>
+        </div>
+        <!--/col-3-->
+        <div class="col-sm-9" contenteditable="false" style="">
+            <div class="panel panel-default">
+                <div class="panel-heading">BIOGRAPHY</div>
+                <div class="panel-body">
+                    @Model.Biography
+                </div>
+            </div>
+            <div class="panel panel-default target">
+                <div class="panel-heading" contenteditable="false">
+                    PHOTOS @if (@Model.canEdit)
+                    { <a href="@Url.Action("AddImage", "Image")" class="pull-right" title="Add Image"><span class="glyphicon glyphicon-plus"></span></a> }
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        @foreach (var img in Model.ImageUrl)
+                        {
+                            <div class="col-md-4">
+                                <img class="img-responsive" alt="300x300" src="@img.ImgUrl">
+                                <div class="text-left">
+                                    @if (Model.canEdit)
+                                    {
+                                        <a href="@Url.Action("DeleteImage", "Image", new { imgId = img.ImageId })" title="Delete Image"><span class="glyphicon glyphicon-trash" style="color: red;"></span></a> <a href="@Url.Action("SetProfilePicture", "Image", new { imgId = img.ImageId })" title="Set Image As Profile"><span class="glyphicon glyphicon-user"></span></a>
+                                    }
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <div class="tab-pane active" id="info">
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            VIDEOS @if (@Model.canEdit)
+                            { <a href="@Url.Action("AddVideo", "Video")" class="pull-right" title="Add Video"><span class="glyphicon glyphicon-plus"></span></a> }
+                        </div>
+                        <div class="panel-body">
+                            @foreach (var v in Model.VideoUrl.Take(1))
+                            {
+                                <div class="embed-responsive embed-responsive-16by9">
+                                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/@v.VideoUrl"></iframe>
+                                </div>
+                                <div class="text-left">
+                                    @if (Model.canEdit)
+                                    {
+                                        <a href="@Url.Action("DeleteVideo", "Video", new { vid = @v.VideoId })" title="Delete Video"><span class="glyphicon glyphicon-trash" style="color: red;"></span></a>
+                                    }
+                                </div>
+                            }
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            WORK HISTORY @if (@Model.canEdit)
+                            { <a href="@Url.Action("AddExperience", "Experience")" class="pull-right" title="Add Work History Entry"><span class="glyphicon glyphicon-plus"></span></a> }
+                        </div>
+                        <div class="panel-body">
+                            @foreach (var e in Model.ExpEntry)
+                            {
+                                <div class="panel panel-default">
+                                    <div class="panel-body">
+                                        @e.ExpEntry
+                                    </div>
+                                    @if (Model.canEdit)
+                                    {
+                                        <a href="@Url.Action("EditExperience", "Experience", new { eid = @e.ExperienceId })" title="Edit Entry"><span class="glyphicon glyphicon-pencil"></span></a>
+                                        <a href="@Url.Action("DeleteExperience", "Experience", new { eid = @e.ExperienceId })" title="Delete Entry"><span class="glyphicon glyphicon-trash" style="color: red;"></span></a>
+                                    }
+                                </div>
+                            }
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            EXTERNAL LINKS @if (@Model.canEdit)
+                            { <a href="@Url.Action("AddLink", "Link")" class="pull-right" title="Add Link"><span class="glyphicon glyphicon-plus"></span></a> }
+                        </div>
+                        <div class="panel-body">
+                            <ul>
+                                @foreach (var link in Model.LinkUrl)
+                                {
+                                    if (link.LinkType == "Other")
+                                    {
+                                        <li>
+                                            <a href="@link.LinkUrl" target="_blank">@link.LinkDesc</a>
+                                            @if (Model.canEdit)
+                                            {
+                                                <a href="@Url.Action("DeleteLink", "Link", new { lid = link.LinkId} )" title="Delete Link"><span class="glyphicon glyphicon-trash" style="color: red;"></span></a>
+                                            }
+                                        </li>
+                                    }
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="push"></div>
+        </div>
+    </div>
+</div>

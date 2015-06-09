@@ -1,0 +1,313 @@
+﻿@model SearchCastCrew.Models.SearchFilterVm
+
+@{
+    ViewBag.Title = "Search For talent";
+}
+<!-- Latest compiled and minified CSS -->
+<link href="css/bootstrap.css" rel="stylesheet" />
+<!-- Tiles theme CSS -->
+<link href="/css/Style.css" rel="stylesheet" />
+<!--Sidebar CSS-->
+<link href="css/simple-sidebar.css" rel="stylesheet" />
+<!--Social Fonts-->
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<br /><br /><br /><br /><br /><br />
+
+<div class="container">
+
+
+    <div class="row">
+        <div class="col-2 col-sm-2 col-lg-2">
+
+            <h2>Search Talent</h2>
+
+            @using (Html.BeginForm())
+            {
+                <div class="form-horizontal">
+
+                    <hr />
+                    @Html.HiddenFor(model => model.CurrPage)
+                                        @Html.HiddenFor(model => model.NextPage)
+                                                            @Html.HiddenFor(model => model.PrevPage)
+                                                            @Html.HiddenFor(model => model.InDirection)
+
+
+
+
+
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "search-control-label col-md-7" })
+                        <br />
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control input-sm talent-input" } })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <br />
+                        @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "search-control-label col-md-7" })
+                        <br />
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control input-sm" } })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <br />
+                        @Html.LabelFor(model => model.City, htmlAttributes: new { @class = "search-control-label col-md-7" })
+                        <br />
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.City, new { htmlAttributes = new { @class = "form-control  input-sm" } })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <br />
+                        @Html.LabelFor(model => model.State, htmlAttributes: new { @class = "search-control-label col-md-7" })
+                        <br />
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.State, new { htmlAttributes = new { @class = "form-control  input-sm" } })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <br />
+                        @Html.LabelFor(model => model.Zip, htmlAttributes: new { @class = "search-control-label col-md-7" })
+                        <br />
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Zip, new { htmlAttributes = new { @class = "form-control  input-sm" } })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <br />
+                        @Html.LabelFor(model => model.HeightInInches, htmlAttributes: new { @class = "search-control-label col-md-7" })
+                        <br />
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.HeightInInches, new { htmlAttributes = new { @class = "form-control  input-sm" } })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <br />
+                        @Html.LabelFor(model => model.Weight, htmlAttributes: new { @class = "search-control-label col-md-7" })
+                        <br />
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Weight, new { htmlAttributes = new { @class = "form-control  input-sm" } })
+                        </div>
+                    </div>                   
+
+                    <div class="form-group">
+                        <br />
+                        @Html.LabelFor(model => model.AgeRangeId, "Age Range", htmlAttributes: new { @class = "search-control-label col-md-7" })
+                        <br />
+                        <div class="col-md-10">
+                            @Html.DropDownListFor(x => x.AgeRangeId, Model.AgeRangeList, "", htmlAttributes: new { @class = "form-control  input-sm" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <br />
+                        @Html.LabelFor(model => model.HairColorId, "Hair Color", htmlAttributes: new { @class = "search-control-label col-md-7" })
+                        <br />
+                        <div class="col-md-10">
+                            @Html.DropDownListFor(x => x.HairColorId, Model.HairColorList, "", htmlAttributes: new { @class = "form-control" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <br />
+                        @Html.LabelFor(model => model.EyeColorId, "Eye Color", htmlAttributes: new { @class = "search-control-label col-md-7" })
+                        <br />
+                        <div class="col-md-10">
+                            @Html.DropDownListFor(x => x.EyeColorId, Model.EyeColorList, "", htmlAttributes: new { @class = "form-control  input-sm" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <br />
+                        @Html.LabelFor(model => model.GenderId, "Gender", htmlAttributes: new { @class = "search-control-label col-md-7" })
+                        <br />
+                        <div class="col-md-10">
+                            @Html.DropDownListFor(x => x.GenderId, Model.GenderList, "", htmlAttributes: new { @class = "form-control  input-sm" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <br />
+                        @Html.LabelFor(model => model.BodyTypeId, "Body Type", htmlAttributes: new { @class = "search-control-label col-md-7" })
+                        <br />
+                        <div class="col-md-10">
+                            @Html.DropDownListFor(x => x.BodyTypeId, Model.BodyTypeList, "", htmlAttributes: new { @class = "form-control  input-sm" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <br />
+                        @Html.LabelFor(model => model.EthnicityId, "Ethnicity", htmlAttributes: new { @class = "search-control-label col-md-7" })
+                        <br />
+                        <div class="col-md-10">
+                            @Html.DropDownListFor(x => x.EthnicityId, Model.EthnicityList, "", htmlAttributes: new { @class = "form-control  input-sm" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <br />
+                        @Html.LabelFor(model => model.AvailabilityId, "Availability", htmlAttributes: new { @class = "search-control-label col-md-7" })
+                        <br />
+                        <div class="col-md-10">
+                            @Html.DropDownListFor(x => x.AvailabilityId, Model.AvailabilityList, "", htmlAttributes: new { @class = "form-control  input-sm" })
+                        </div>
+                    </div>
+
+                    <br />
+                    <div class="form-group">
+                        <div class="col-md-10">
+                            <div class="text-center">
+                                <input type="submit" value="Search" class="btn btn-default" />
+                                <br />
+                                <br />
+                                <a href="@Url.Action("Search", "Profiles", new { num = 0 })" class="btn btn-default">Reset Form</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+
+
+
+        <div class="col-9 col-sm-9 col-lg-9 right">
+            <div class="row clearfix">
+                <div class="col-md-12 column">
+                    <div class="row">
+                        @foreach (var item in Model.UserList)
+                        {
+                            <div class="col-md-4 col-search-height">
+                                <div class="thumbnail">
+                                    @if (@item.ImageUrl == null)
+                                    {
+                                        <img alt="300x200" src="http://www.trialguides.com/images/authors/placeholder.jpg" />
+                                    }
+                                    else
+                                    {
+                                        <img alt="300x200" src="@item.ImageUrl.ImgUrl" />
+                                    }
+                                    <div class="caption">
+                                        <h3>
+                                            @item.FirstName @item.LastName
+                                        </h3>
+                                        <p>
+                                            <span class="glyphicon glyphicon-briefcase"></span> @item.Title<br />
+                                            <span class="glyphicon glyphicon-map-marker"></span> @item.City, @item.State
+                                        </p>
+                                        <p>
+                                            <a class="btn btn-primary" href="@Url.Action("ViewProfile", "Home", new { uid = item.UserId })">View Profile</a> @*<a class="btn" href="#">Contact</a>*@
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+            <div class="row clearfix">
+                <div class="col-md-12 column">
+                    @if (Model.InSearchMode)
+                    {
+                        <p>Total Profiles: @Model.TotalUsers</p>
+                        <ul class="pagination">
+                            <li>
+                                <a id="btn_prev" pageJump="@Model.PrevPage" href="@Url.Action("Search", "Profiles" )">Prev</a>
+                            </li>
+                            @for (int i = 0; i < Model.PageCount; i++)
+                            {
+                                <li>
+                                    <a class="btn_jump" pageJump="@i" href="@Url.Action("Search", "Profiles" )">@(i + 1)</a>
+                                </li>
+                            }
+                            <li>
+                                <a id="btn_next" pageJump="@Model.NextPage" href="@Url.Action("Search", "Profiles" )">Next</a>
+                            </li>
+                        </ul>
+                    }
+                    else
+                    {
+                        <p>Total Profiles: @Model.TotalUsers</p>
+                        <ul class="pagination">
+                            <li>
+                                <a href="@Url.Action("Search", "Profiles", new { num = Model.PrevPage } )">Prev</a>
+                            </li>
+                            @for (int i = 0; i < Model.PageCount; i++)
+                            {
+                                <li>
+                                    <a href="@Url.Action("Search", "Profiles", new { num = i } )">@(i + 1)</a>
+                                </li>
+                            }
+                            <li>
+                                <a href="@Url.Action("Search", "Profiles", new { num = Model.NextPage } )">Next</a>
+                            </li>
+                        </ul>
+                    }
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- jQuery -->
+<script src="js/jquery.js"></script>
+<!-- Bootstrap Core JavaScript -->
+<script src="js/bootstrap.min.js"></script>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+
+<style>
+    .input-sm {
+        height: 26px;
+    }
+
+    .form-group {
+        margin-bottom: 0;
+    }
+
+    select.input-sm {
+        height: 29px;
+    }
+</style>
+
+<script>
+    $("#btn_prev").click(function (event) {
+        event.preventDefault();
+        $('#InDirection').val("prev");
+        var jNum = $(this).attr("pageJump")
+        $('#CurrPage').val(jNum)
+        document.forms[0].submit();
+    });
+    $("#btn_next").click(function (event) {
+        event.preventDefault();
+        $('#InDirection').val("next");
+        var jNum = $(this).attr("pageJump")
+        $('#CurrPage').val(jNum)
+        document.forms[0].submit();
+    });
+    $(".btn_jump").click(function (event, nums) {
+        // $('#InDirection').val("next");
+        event.preventDefault();
+        $('#InDirection').val("jump");
+        var jNum = $(this).attr("pageJump")
+        $('#CurrPage').val(jNum)
+        console.log(jNum)
+        document.forms[0].submit();
+    });
+
+
+</script>
+
+

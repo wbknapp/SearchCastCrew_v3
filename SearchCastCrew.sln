@@ -1,0 +1,48 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SearchCastCrew", "SearchCastCrew\SearchCastCrew.csproj", "{C70AFA0B-3770-4E3C-8BD9-699C2830CCA7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SearchCastCrew.Data", "SearchCastCrew.Data\SearchCastCrew.Data.csproj", "{C6F8D850-BDB8-4797-8417-DB4AD6F8DED2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SearchCastCrew.Data.Models", "SearchCastCrew.Data.Models\SearchCastCrew.Data.Models.csproj", "{9E09EB81-FF89-4BF1-8DA5-61CC73832153}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 4
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://tfs.codeplex.com/tfs/tfs29
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = SearchCastCrew.Data.Models\\SearchCastCrew.Data.Models.csproj
+		SccProjectName1 = SearchCastCrew.Data.Models
+		SccLocalPath1 = SearchCastCrew.Data.Models
+		SccProjectUniqueName2 = SearchCastCrew.Data\\SearchCastCrew.Data.csproj
+		SccProjectName2 = SearchCastCrew.Data
+		SccLocalPath2 = SearchCastCrew.Data
+		SccProjectUniqueName3 = SearchCastCrew\\SearchCastCrew.csproj
+		SccProjectName3 = SearchCastCrew
+		SccLocalPath3 = SearchCastCrew
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C70AFA0B-3770-4E3C-8BD9-699C2830CCA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C70AFA0B-3770-4E3C-8BD9-699C2830CCA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C70AFA0B-3770-4E3C-8BD9-699C2830CCA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C70AFA0B-3770-4E3C-8BD9-699C2830CCA7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6F8D850-BDB8-4797-8417-DB4AD6F8DED2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6F8D850-BDB8-4797-8417-DB4AD6F8DED2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6F8D850-BDB8-4797-8417-DB4AD6F8DED2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6F8D850-BDB8-4797-8417-DB4AD6F8DED2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E09EB81-FF89-4BF1-8DA5-61CC73832153}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E09EB81-FF89-4BF1-8DA5-61CC73832153}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E09EB81-FF89-4BF1-8DA5-61CC73832153}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E09EB81-FF89-4BF1-8DA5-61CC73832153}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

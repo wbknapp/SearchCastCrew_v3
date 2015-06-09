@@ -1,0 +1,51 @@
+﻿@model SearchCastCrew.Models.LinkAddVm
+@{
+    //Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/Content/Profile.css" rel="stylesheet" />
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.NewLink.UserId)
+    <div class="container">
+        <div class="row clearfix">
+            <div class="col-md-3 column">
+
+            </div>
+            <div class="col-md-6 column margin-edit">
+                <div class="well">
+                    <div>
+                        @Html.LabelFor(model => model.NewLink.LinkUrl)
+                    </div>
+                    <div>
+                        @Html.TextBoxFor(model => model.NewLink.LinkUrl)
+                    </div>
+                    <div>
+                        @Html.LabelFor(model => model.NewLink.LinkType)
+                    </div>
+                    <div>
+                        @Html.DropDownListFor(model => model.NewLink.LinkType, Model.LinkTypeList)
+                    </div>
+                    <div>
+                        <h5>(If "Other", please enter a description below.)</h5>
+                        @Html.TextBoxFor(model => model.NewLink.LinkDesc)
+                    </div>
+                    <br />
+                    <div>
+                        <button class="btn btn-default" type="submit">Save Entry</button>
+                        <button class="btn btn-default" onclick="goBack()">Cancel</button>
+                    </div>
+                    <div class="col-md-3 column">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+<style>
+    .margin-edit {
+        margin-top: 100px;
+    }
+</style>

@@ -1,0 +1,38 @@
+﻿@model SearchCastCrew.Models.ExperienceToDeleteVm
+@{
+    //Layout = null;
+}
+
+<link href="~/Content/Profile.css" rel="stylesheet" />
+<div class="container">
+    <div class="row clearfix">
+        <div class="col-md-3 column ">
+
+        </div>
+        <div class="col-md-6 column margin-edit">
+            <div class="well">
+                <h3>Are you sure you want to delete this job entry?</h3>
+                <div>
+
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="form-actions no-color">
+                            <button class="btn btn-default" type="submit" value="DeleteExperience">Yes</button>
+                            <button class="btn btn-default" onclick="goBack()">I don't</button>
+                        </div>
+                    }
+                </div>
+                <div class="col-md-3 column">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    .margin-edit {
+        margin-top: 100px;
+    }
+</style>

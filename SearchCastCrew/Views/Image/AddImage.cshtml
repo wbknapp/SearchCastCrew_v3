@@ -1,0 +1,31 @@
+﻿@model SearchCastCrew.Models.ImageAddVm
+@{
+    //Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.NewImage.UserId)
+
+    <div class="col-md-6 col-md-offset-3 margin-edit">
+        <div>
+            @Html.LabelFor(model => model.NewImage.ImageUrl)
+        </div>            
+        <div>
+            @Html.TextBoxFor(model => model.NewImage.ImageUrl)
+        </div>
+        <br />
+        <div>
+            <button class="btn btn-default" type="submit">Save Entry</button>
+            <button class="btn btn-default" onclick="goBack()">Cancel</button>
+        </div>
+    </div>
+}
+
+
+<style>
+    .margin-edit {
+        margin-top: 100px;
+    }
+</style>

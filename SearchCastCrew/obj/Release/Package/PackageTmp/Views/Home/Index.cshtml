@@ -1,0 +1,161 @@
+﻿@using Microsoft.AspNet.Identity
+@model SearchCastCrew.Models.UserIndexVm
+@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Scripts {
+    @Scripts.Render("~/Scripts/home.js")
+    @Scripts.Render("~/Scripts/jquery.interactive_bg.js")
+}
+
+<link href="~/css/home.css" rel="stylesheet" />
+
+@*<div class="wrapper bg" data-ibg-bg="/imgs/bg.png">
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />*@
+@*new { uid = User.Identity.GetUserId()}*@
+@*<div class="container">
+        <div class="row clearfix">
+            <div class="col-md-2 column">
+            </div>
+            <div class="col-md-8 column">
+                <div class="jumbotron wellHome">
+                    <p class="titleHome" font-family="../fonts/Atlantic_Cruise-Demo.ttf"><span class="titleHome2">S</span>earch. <span class="titleHome2">C</span>ast. <span class="titleHome2">C</span>rew.</p>
+                    <h3>A simplified approach to film. <br />Search our community of talent for hire.</h3>
+                    <p>
+                        <a class="btn btn-primary" href="#">Search Jobs</a>
+                        @Html.ActionLink("Search talent", "Search", "Profiles", null, new { @class = "btn btn-primary" })
+
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-2 column">
+            </div>
+        </div>
+    </div>*@
+
+
+
+
+
+
+<!-- Header -->
+
+<div class="intro-header">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="intro-message">
+                    <h1>Search Cast Crew</h1>
+                    <h3>A simplified approach to film. <br />Search our community of talent for hire.</h3>
+                    <hr class="intro-divider">
+                    <ul class="list-inline intro-social-buttons">
+                        <li>
+                            <a href="@Url.Action("Search", "Profiles", new { num = 0 })" class="btn btn-default btn-lg">Search</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <!-- /.container -->
+
+</div>
+<!-- /.intro-header -->
+<!-- Page Content -->
+
+<a name="services"></a>
+<div class="content-section-a">
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-lg-5 col-sm-6">
+                <hr class="section-heading-spacer">
+                <div class="clearfix"></div>
+                <h2 class="section-heading"><b class="scc">SEARCH</b><br>Explore our network</h2>
+                <p class="lead">A fast and affordable way to find the connections you need in our extensive network for your next project or to help get that next great role.</p>
+            </div>
+            <div class="col-lg-5 col-lg-offset-2 col-sm-6">
+                <img class="img-responsive" src="~/imgs/Jennifer-Lawrence-Vanity-Fair3-2.jpg" alt="">
+
+
+            </div>
+        </div>
+
+
+    </div>
+    <!-- /.container -->
+
+</div>
+<!-- /.content-section-a -->
+
+<div class="content-section-b">
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6">
+                <hr class="section-heading-spacer">
+                <div class="clearfix"></div>
+                <h2 class="section-heading"><b class="scc">CAST</b><br>Find new talent</h2>
+                <p class="lead">Quickly becoming an industry standard, make the connections you need without the expense of want-ads or agencies. Come get discovered!</p>
+            </div>
+            <div class="col-lg-5 col-sm-pull-6  col-sm-6">
+                <img class="img-responsive" src="~/imgs/Filmslate2.jpg" alt="">
+
+
+            </div>
+        </div>
+
+    </div>
+    <!-- /.container -->
+
+</div>
+<!-- /.content-section-b -->
+
+<div class="content-section-a">
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-lg-5 col-sm-6">
+                <hr class="section-heading-spacer">
+                <div class="clearfix"></div>
+                <h2 class="section-heading"><b class="scc">CREW</b><br>Connect with the best in the industry</h2>
+                <p class="lead">Hire your key people for any production, or network with filmakers from all over the United States. </p>
+            </div>
+            <div class="col-lg-5 col-lg-offset-2 col-sm-6">
+                <img class="img-responsive" src="~/imgs/filmcrew2_o.jpg" alt="">
+
+            </div>
+        </div>
+
+    </div>
+    <!-- /.container -->
+
+</div>
+
+<style>
+    .intro-message > h1 {
+        color: rgb(253, 139, 28);
+    }
+
+    .scc {
+        font-size: 50px;
+    }
+</style>

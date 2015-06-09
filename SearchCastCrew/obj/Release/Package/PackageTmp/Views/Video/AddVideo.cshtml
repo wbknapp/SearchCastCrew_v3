@@ -1,0 +1,47 @@
+﻿@model SearchCastCrew.Models.VideoAddVm
+@{
+    //Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<link href="~/Content/Profile.css" rel="stylesheet" />
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.NewVideo.UserId)
+    <div class="container">
+        <div class="row clearfix">
+            <div class="col-md-3 column">
+
+            </div>
+            <div class="col-md-6 column margin-edit">
+                <div class="well">
+                    <div>
+                        @Html.LabelFor(model => model.NewVideo.VideoUrl)
+                    </div>
+                    <div>
+                        @Html.TextBoxFor(model => model.NewVideo.VideoUrl)
+                    </div>
+                    <div>
+                        @Html.LabelFor(model => model.NewVideo.VideoDesc)
+                    </div>
+                    <div>
+                        @Html.TextBoxFor(model => model.NewVideo.VideoDesc)
+                    </div>
+                    <br />
+                    <div>
+                        <button class="btn btn-default" type="submit">Save Video</button>
+                    </div>
+                    <div class="col-md-3 column">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+<style>
+    .margin-edit {
+        margin-top: 100px;
+    }
+</style>

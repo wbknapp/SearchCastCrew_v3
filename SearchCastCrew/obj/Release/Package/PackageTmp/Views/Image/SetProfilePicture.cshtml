@@ -1,0 +1,26 @@
+﻿@model SearchCastCrew.Models.ImageProfileVm
+
+@{
+    // Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="col-md-6 col-md-offset-3  margin-edit">
+    <h3>Are you sure you want to set this image as your profile picture?</h3>
+
+    @using (Html.BeginForm())
+    {
+        @Html.HiddenFor(model => model.ImageId)
+
+        <div class="form-actions no-color">
+
+
+            <input type="submit" value="Confirm" class="btn btn-default" />
+            <button class="btn btn-default" onclick="goBack()">Cancel</button>
+        </div>
+    }
+</div>
+
+<style>
+    .margin-edit {
+        margin-top: 100px;
+    }
+</style>
